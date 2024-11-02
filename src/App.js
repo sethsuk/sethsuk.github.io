@@ -21,10 +21,10 @@ const App = () => {
                     <h3>Computer Science, BSE @ UPenn '27</h3>
                 </div>
                 <div class="info">
-                    <P><strong>Hometown:</strong> Bangkok, Thailand</P>
+                    <p><strong>Hometown:</strong> Bangkok, Thailand</p>
                     <p><strong>Skill Set:</strong> Backend development, Databases, RESTful APIs</p>
-                    <p><Strong>Passions:</Strong> Digital & film photography, Drumming, Thai basil crispy pork belly, Late-night izakaya runs</p>
-                    <p><Strong>Current Interest Phase:</Strong> Budget audiophile, Custom mechanical keyboards, Photo book collages</p>
+                    <p><strong>Passions:</strong> Digital & film photography, Drumming, Thai basil crispy pork belly, Late-night izakaya runs</p>
+                    <p><strong>Current Interest Phase:</strong> Budget audiophile, Custom mechanical keyboards, Photo book collages</p>
                 </div>
             </div>
             <div class="pfp">
