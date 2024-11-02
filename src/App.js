@@ -1,42 +1,47 @@
 import React from 'react';
+import Info from './components/Info';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 const App = () => {
-  return (
-    <div>
-        <header>
-            <div class="header-banner">
-                <ul class="header-links">
-                    <li><a href="mailto:sethsuk@seas.upenn.edu" target="_blank">Email</a></li>
-                    <li><a href="https://www.linkedin.com/in/seth-sukboontip/" target="_blank">LinkedIn</a></li>
-                    <li><a href="https://github.com/sethsuk" target="_blank">GitHub</a></li>
-                    <li><a href="https://www.instagram.com/kilroys_magical_world/" target="_blank">📷</a></li>
-                </ul>
-            </div>
-        </header>
+    const header_map = new Map();
+    header_map.set('mailto:sethsuk@seas.upenn.edu', 'Email');
+    header_map.set('https://www.linkedin.com/in/seth-sukboontip/', 'LinkedIn');
+    header_map.set('https://github.com/sethsuk', 'GitHub');
+    header_map.set('https://www.instagram.com/kilroys_magical_world/', '📷');
 
-        <main class="container">
-            <div class="left-section">
-                <div class="name">
-                    <h1>Seth Sukboontip</h1>
-                    <h3>Computer Science, BSE @ UPenn '27</h3>
-                </div>
-                <div class="info">
-                    <p><strong>Hometown:</strong> Bangkok, Thailand</p>
-                    <p><strong>Skill Set:</strong> Backend development, Databases, RESTful APIs</p>
-                    <p><strong>Passions:</strong> Digital & film photography, Drumming, Thai basil crispy pork belly, Late-night izakaya runs</p>
-                    <p><strong>Current Interest Phase:</strong> Budget audiophile, Custom mechanical keyboards, Photo book collages</p>
-                </div>
-            </div>
-            <div class="pfp">
-                <img src="images/seth_sukboontip_image.jpg" alt="Headshot of Seth Sukboontip"/>
-            </div>
-        </main>
+    const info_map = new Map();
+    info_map.set('Hometown', 'Bangkok, Thailand');
+    info_map.set('Skill Set', 'Backend development, Databases, RESTful APIs');
+    info_map.set('Passions', 'Digital & film photography, Drumming, Thai basil crispy pork belly, Late-night izakaya runs');
+    info_map.set('Current Interest Phase', 'Budget audiophile, Custom mechanical keyboards, Photo book collages');
 
-        <footer>
-            <p>&copy; 2024 Seth Sukboontip. All rights reserved.</p>
-        </footer>
-    </div>
-  );
+    return (
+        <div>
+            <Header header_map={header_map} />
+
+            <main class="container">
+                <div class="left-section">
+                    <div class="name">
+                        <h1>Seth Sukboontip</h1>
+                        <h3>Computer Science, BSE @ UPenn '27</h3>
+                    </div>
+
+                    <div class="info">
+                        <Info info_map={info_map} />
+                    </div>
+
+                </div>
+
+                <div class="pfp">
+                    <img src="images/seth_sukboontip_image.jpg" alt="Headshot of Seth Sukboontip"/>
+                </div>
+
+            </main>
+
+            <Footer footer="2024 Seth Sukboontip. All rights reserved." />
+        </div>
+    );
 };
 
 export default App;
