@@ -12,9 +12,9 @@ const App = () => {
 
     const info_map = new Map();
     info_map.set('Hometown', 'Bangkok, Thailand');
-    info_map.set('Skill Set', 'Backend development, Databases, RESTful APIs');
+    info_map.set('Skill Set', 'Machine learning frameworks, SQL databases, RESTful APIs');
     info_map.set('Passions', 'Digital & film photography, Drumming, Thai basil crispy pork belly, Late-night izakaya runs');
-    info_map.set('Current Interest Phase', 'Budget audiophile, Custom mechanical keyboards, Photo book collages');
+    info_map.set('Current Interests', 'Budget audiophile, Custom mechanical keyboards, Photo book collages');
 
     return (
         <div>
@@ -39,7 +39,7 @@ const App = () => {
 
             </main>
 
-            <Footer footer="2024 Seth Sukboontip. All rights reserved." />
+            <Footer footer="2025 Seth Sukboontip. All rights reserved." />
         </div>
     );
 };
