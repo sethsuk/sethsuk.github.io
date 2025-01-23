@@ -45,10 +45,10 @@ const App = () => {
                 <div class="left-section">
                     <div class="name">
                         <h1>Seth Sukboontip</h1>
-                        <h3>University of Pennsylvania, Class of 2027</h3>
-                        <h3>— Computer Science, BSE</h3>
-                        <h3>— Computer & Information Science, MSE</h3>
-                        <h5>Accelerated Master's program — concurrent completion</h5>
+                        <h3>University of Pennsylvania</h3>
+                        <h4>— Computer & Information Science, MSE</h4>
+                        <h4>— Computer Science, BSE</h4>
+                        <h5>Class of 2027 | Accelerated Master's — concurrent completion</h5>
                     </div>
 
                     <div class="info">
