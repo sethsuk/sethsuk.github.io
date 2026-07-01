@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { siteContent } from '@/lib/content'
 import ThemeToggle from './ThemeToggle'
 import MobileMenu from './MobileMenu'
+import BauhausLogo from './BauhausLogo'
 
 export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -14,11 +15,11 @@ export default function Nav() {
     <>
       <nav className="sticky top-0 z-40 bg-bg border-b-2 border-ink">
         <div className="flex items-center justify-between px-6 md:px-16 py-4">
-          <Link
-            href="/"
-            className="font-display font-bold text-xs tracking-label uppercase hover:text-red transition-colors"
-          >
-            Seth Sukboontip
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <BauhausLogo />
+            <span className="font-display font-bold text-xs tracking-label uppercase group-hover:text-red transition-colors">
+              Seth Sukboontip
+            </span>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">

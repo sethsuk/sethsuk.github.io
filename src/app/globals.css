@@ -8,7 +8,7 @@
 }
 
 .dark {
-  --bg: #111111;
+  --bg: #1a1614;
   --ink: #f0ebe0;
 }
 
@@ -25,6 +25,28 @@ html {
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Animations ─────────────────────────────────────────────── */
+
+/* Mondrian line draw outward from click point */
+@keyframes drawH {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes drawV {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+
+/* Page load left-to-right wipe */
+@keyframes wipe-in {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+.page-wipe {
+  animation: wipe-in 500ms ease-out forwards;
 }
 
 /* Restore sane defaults stripped by the reset above */

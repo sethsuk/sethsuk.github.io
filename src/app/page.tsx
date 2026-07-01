@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { siteContent } from '@/lib/content'
 import { projects } from '@/lib/projects'
 import ProjectCard from '@/components/ProjectCard'
+import MondrianCanvas from '@/components/MondrianCanvas'
 
 export const metadata: Metadata = {
   title: 'Seth Sukboontip — Software Engineer',
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 
 function SectionHeader({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-ink text-bg px-6 md:px-16 py-3 font-display font-bold text-xs tracking-label uppercase">
+    <div className="bg-red dark:bg-[#2C2924] text-white dark:text-ink px-6 md:px-16 py-3 font-display font-bold text-xs tracking-label uppercase">
       {children}
     </div>
   )
@@ -58,9 +59,11 @@ export default function HomePage() {
             </a>
           </div>
 
-          {/* Right: red block + bio */}
+          {/* Right: mondrian canvas + bio */}
           <div className="flex flex-col min-h-[360px]">
-            <div className="flex-1 bg-red" />
+            <div className="flex-1 relative overflow-hidden min-h-[240px]">
+              <MondrianCanvas />
+            </div>
             <div className="border-t-2 border-ink px-8 py-8">
               <p className="font-body text-base leading-relaxed">{hero.bio}</p>
             </div>

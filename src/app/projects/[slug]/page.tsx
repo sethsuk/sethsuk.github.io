@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation'
 import { projects } from '@/lib/projects'
 
 interface Props {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export function generateStaticParams() {
@@ -13,7 +13,8 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const project = projects.find((p) => p.slug === params.slug)
+  const { slug } = await params
+  const project = projects.find((p) => p.slug === slug)
   if (!project) return {}
   return {
     title: project.title,
@@ -21,8 +22,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function ProjectPage({ params }: Props) {
-  const project = projects.find((p) => p.slug === params.slug)
+export default async function ProjectPage({ params }: Props) {
+  const { slug } = await params
+  const project = projects.find((p) => p.slug === slug)
   if (!project) return notFound()
 
   const isOdd = parseInt(project.number, 10) % 2 !== 0
