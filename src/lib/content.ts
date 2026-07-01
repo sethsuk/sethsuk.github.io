@@ -1,0 +1,58 @@
+export const siteContent = {
+  hero: {
+    name: 'Seth Sukboontip',
+    tagline: 'Software Engineer',
+    location: 'Philadelphia, PA',
+    // 2–4 sentences shown below the red block in the hero right column.
+    bio: 'Placeholder — replace with your own words.',
+    education: 'MSE + BS @ UPenn',
+  },
+
+  education: [
+    {
+      degree: 'MSE in Computer and Information Science',
+      school: 'University of Pennsylvania',
+      location: 'Philadelphia, PA',
+      expected: '2027',
+      note: "Accelerated Master's",
+    },
+    {
+      degree: 'BS in Computer Science',
+      school: 'University of Pennsylvania',
+      location: 'Philadelphia, PA',
+      expected: '2027',
+      note: 'Minors: Data Science, Fine Arts',
+    },
+  ],
+
+  awards: [
+    {
+      place: '1ST',
+      title: 'Prompt Hacking Challenge',
+      event: 'Wharton AI & Analytics Initiative Hackathon',
+      year: '2025',
+    },
+    {
+      place: '3RD',
+      title: 'Data Analytics Competition',
+      event: 'Wharton Undergraduate Data Analytics Club Datathon',
+      year: '2025',
+    },
+  ],
+
+  photos: {
+    // 1–3 sentences about your photography interest shown on /photos.
+    blurb:
+      'Placeholder — describe your interest in film and digital photography.',
+    instagramHandle: 'kilroys_magical_world',
+    instagramUrl: 'https://instagram.com/kilroys_magical_world',
+  },
+
+  contact: {
+    email: 'sethsuk@seas.upenn.edu',
+    linkedin: 'https://linkedin.com/in/seth-sukboontip',
+    github: 'https://github.com/sethsuk',
+    // Paste your Google Drive share link here. Leave empty to hide the Resume link.
+    resumeUrl: '',
+  },
+}
