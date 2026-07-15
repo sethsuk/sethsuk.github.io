@@ -106,13 +106,12 @@ export default function HomePage() {
             <div className="space-y-4">
               {education.map((edu, i) => (
                 <div key={i} className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                  <div>
+                  <div className="flex items-center">
                     <span className="font-display font-bold text-sm tracking-tight">
                       {edu.degree}
                     </span>
-                    <span className="font-display text-xs opacity-60 ml-3">
-                      · Expected {edu.expected}
-                    </span>
+                    <span className="font-display text-sm leading-none opacity-60 mx-3">·</span>
+                    <span className="font-display text-xs opacity-60">Expected {edu.expected}</span>
                   </div>
                   <span className="font-display text-xs tracking-label opacity-60">
                     {edu.note}
@@ -142,7 +141,7 @@ export default function HomePage() {
                     className={`font-display font-bold text-xs tracking-label px-2 py-0.5 ${
                       isFirst
                         ? 'bg-red text-white'
-                        : 'bg-yellow text-ink'
+                        : 'bg-yellow text-ink dark:text-bg'
                     }`}
                   >
                     {award.place}

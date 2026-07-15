@@ -27,6 +27,15 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Theme switch transition.
+   Specificity 0 — Tailwind's .transition-colors class overrides this on interactive elements,
+   keeping hover states at their own (faster) duration. */
+* {
+  transition-property: background-color, color, border-color;
+  transition-duration: 250ms;
+  transition-timing-function: ease;
+}
+
 /* ── Animations ─────────────────────────────────────────────── */
 
 /* Mondrian line draw outward from click point */

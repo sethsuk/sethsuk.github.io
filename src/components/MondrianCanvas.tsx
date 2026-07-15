@@ -281,7 +281,7 @@ export default function MondrianCanvas() {
 
       {!hasContent && (
         <div className="absolute inset-0 flex items-end justify-start p-4 z-20 pointer-events-none">
-          <span className="font-display font-bold text-[10px] tracking-label uppercase text-white/50">
+          <span className="font-display font-bold text-[10px] tracking-label uppercase text-black/40">
             Click to compose
           </span>
         </div>
