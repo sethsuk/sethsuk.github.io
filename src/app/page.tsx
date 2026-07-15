@@ -20,7 +20,7 @@ function SectionHeader({ children }: { children: React.ReactNode }) {
 }
 
 export default function HomePage() {
-  const { hero, education, awards } = siteContent
+  const { hero, education, awards, photos } = siteContent
   const featured = projects.filter((p) => p.featured).slice(0, 4)
 
   return (
@@ -52,7 +52,7 @@ export default function HomePage() {
               </div>
             </div>
             <a
-              href="#work"
+              href="#projects"
               className="font-display font-bold text-xs tracking-label uppercase border-b-2 border-ink self-start pb-1 hover:text-red transition-colors"
             >
               ↓ Selected Projects
@@ -86,6 +86,22 @@ export default function HomePage() {
           >
             View All Projects →
           </Link>
+        </div>
+      </section>
+
+      {/* ── Photos ───────────────────────────────────────────────── */}
+      <section className="border-b-2 border-ink">
+        <SectionHeader>Photography</SectionHeader>
+        <div className="px-6 md:px-16 py-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8">
+          <p className="font-body text-base leading-relaxed max-w-lg">{photos.blurb}</p>
+          <a
+            href={photos.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-display font-bold text-xs tracking-label uppercase border-2 border-ink px-6 py-3 hover:bg-ink hover:text-bg transition-colors whitespace-nowrap self-start sm:self-auto"
+          >
+            @{photos.instagramHandle} →
+          </a>
         </div>
       </section>
 

@@ -4,7 +4,7 @@ export const siteContent = {
     tagline: 'Software Engineer',
     location: 'Philadelphia, PA',
     // 2–4 sentences shown below the red block in the hero right column.
-    bio: 'Placeholder — replace with your own words.',
+    bio: 'Kilroy was here!',
     education: 'MSE + BS @ UPenn',
   },
 
