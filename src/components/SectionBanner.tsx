@@ -11,8 +11,8 @@ export default function SectionBanner({ children, yellow = false, bordered = fal
         'px-6 md:px-16 py-3 font-display font-bold text-xs tracking-label uppercase select-none',
         bordered ? 'border-b-2 border-ink' : '',
         yellow
-          ? 'bg-yellow text-ink'
-          : 'bg-red text-white dark:bg-[#2C2924] dark:text-ink',
+          ? 'bg-yellow text-ink dark:bg-[#2C2924] dark:text-ink'
+          : 'bg-red text-white',
       ].join(' ')}
     >
       {children}

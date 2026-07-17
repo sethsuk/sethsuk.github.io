@@ -6,6 +6,9 @@ import ProjectCard from '@/components/ProjectCard'
 import MondrianCanvas from '@/components/MondrianCanvas'
 import KilroyBio from '@/components/KilroyBio'
 import SectionBanner from '@/components/SectionBanner'
+import WaveName from '@/components/WaveName'
+import RoleCycler from '@/components/RoleCycler'
+import PhillyEasterEgg from '@/components/PhillyEasterEgg'
 
 export const metadata: Metadata = {
   title: 'Seth Sukboontip — Software Engineer',
@@ -15,7 +18,7 @@ export const metadata: Metadata = {
 
 
 export default function HomePage() {
-  const { hero, education, awards, photos } = siteContent
+  const { hero, education, photos } = siteContent
   const featured = projects.filter((p) => p.featured).slice(0, 4)
 
   return (
@@ -27,20 +30,10 @@ export default function HomePage() {
           <div className="flex flex-col justify-between px-6 md:px-16 py-14 border-b-2 md:border-b-0 md:border-r-2 border-ink">
             <div />
             <div>
-              <h1 className="text-hero font-display font-bold leading-[0.92] tracking-[-0.04em] uppercase">
-                {hero.name.split(' ').map((word, i) => (
-                  <span key={i} className="block">
-                    {word}
-                  </span>
-                ))}
-              </h1>
+              <WaveName name={hero.name} />
               <div className="mt-8 space-y-1.5">
-                <p className="font-display font-medium text-sm tracking-label uppercase">
-                  {hero.tagline}
-                </p>
-                <p className="font-display font-medium text-sm tracking-label uppercase">
-                  {hero.location}
-                </p>
+                <RoleCycler />
+                <PhillyEasterEgg location={hero.location} />
                 <p className="font-display font-medium text-sm tracking-label uppercase">
                   {hero.education}
                 </p>
@@ -134,42 +127,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Awards ────────────────────────────────────────────────── */}
-      <section className="border-b-2 border-ink">
-        <SectionBanner yellow>Awards</SectionBanner>
-        <div className="px-6 md:px-16 py-12">
-          <div className="border-2 border-ink">
-            {awards.map((award, i) => {
-              const isFirst = i === 0
-              return (
-                <div
-                  key={i}
-                  className={`flex items-start gap-4 px-6 py-4 ${
-                    i < awards.length - 1 ? 'border-b-2 border-ink' : ''
-                  }`}
-                >
-                  <span
-                    className={`font-display font-bold text-xs tracking-label px-2 py-0.5 select-none shrink-0 ${
-                      isFirst
-                        ? 'bg-red text-white'
-                        : 'bg-yellow text-ink dark:text-bg'
-                    }`}
-                  >
-                    {award.place}
-                  </span>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-baseline justify-between gap-3">
-                      <span className="font-display font-bold text-sm">{award.title}</span>
-                      <span className="font-display text-xs opacity-50 shrink-0">{award.year}</span>
-                    </div>
-                    <p className="font-display text-xs opacity-60 mt-0.5">{award.event}</p>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
     </>
   )
 }

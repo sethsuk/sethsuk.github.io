@@ -5,11 +5,13 @@
 :root {
   --bg: #f5f0e8;
   --ink: #1a1a1a;
+  --eagles-green: #004C54;
 }
 
 .dark {
   --bg: #1a1614;
   --ink: #f0ebe0;
+  --eagles-green: #4CBB17;
 }
 
 *,
@@ -68,6 +70,22 @@ html {
 }
 .copied-badge {
   animation: copied-pop 1500ms ease forwards;
+}
+
+/* Hero name letter wave */
+@keyframes letter-wave {
+  0%, 100% { transform: translateY(0); }
+  40%       { transform: translateY(-0.3em); }
+}
+
+/* RoleCycler blinking cursor */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.typewriter-cursor {
+  animation: cursor-blink 800ms step-end infinite;
+  margin-left: 1px;
 }
 
 /* Mobile menu slide in/out from right */
