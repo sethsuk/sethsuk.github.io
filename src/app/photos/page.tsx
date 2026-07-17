@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { siteContent } from '@/lib/content'
+import { photos } from '@/lib/photos'
 import SectionBanner from '@/components/SectionBanner'
 
 export const metadata: Metadata = {
@@ -8,26 +10,33 @@ export const metadata: Metadata = {
 }
 
 export default function PhotosPage() {
-  const { blurb, instagramHandle, instagramUrl } = siteContent.photos
+  const { instagramHandle, instagramUrl } = siteContent.photos
 
   return (
     <>
       <SectionBanner yellow bordered>Photography</SectionBanner>
 
-      <div className="px-6 md:px-16 py-12 border-b-2 border-ink">
-        <h1 className="text-display font-display font-bold">Photography</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink border-b-2 border-ink">
+        {photos.map((photo) => (
+          <Image
+            key={photo.src}
+            src={photo.src}
+            alt={photo.alt}
+            width={photo.width}
+            height={photo.height}
+            style={{ width: '100%', height: 'auto', display: 'block' }}
+          />
+        ))}
       </div>
 
-      <div className="px-6 md:px-16 py-16 max-w-2xl">
-        <p className="font-body text-base leading-relaxed">{blurb}</p>
-
+      <div className="px-6 md:px-16 py-10 flex justify-end">
         <a
           href={instagramUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block mt-10 font-display font-bold text-xs tracking-label uppercase border-2 border-ink px-6 py-3 hover:bg-ink hover:text-bg transition-colors"
+          className="font-display font-bold text-xs tracking-label uppercase border-2 border-ink px-6 py-3 hover:bg-ink hover:text-bg transition-colors select-none"
         >
-          → View on Instagram (@{instagramHandle})
+          → Instagram (@{instagramHandle})
         </a>
       </div>
     </>

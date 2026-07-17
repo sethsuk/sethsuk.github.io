@@ -41,9 +41,8 @@ export const siteContent = {
   ],
 
   photos: {
-    // 1–3 sentences about your photography interest shown on /photos.
     blurb:
-      'Placeholder — describe your interest in film and digital photography.',
+      'Some of my favorite shots from around the world on film and digital.',
     instagramHandle: 'kilroys_magical_world',
     instagramUrl: 'https://instagram.com/kilroys_magical_world',
   },

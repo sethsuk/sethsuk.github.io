@@ -3,12 +3,14 @@ import Link from 'next/link'
 import { siteContent } from '@/lib/content'
 import { projects } from '@/lib/projects'
 import ProjectCard from '@/components/ProjectCard'
+import Image from 'next/image'
 import MondrianCanvas from '@/components/MondrianCanvas'
 import KilroyBio from '@/components/KilroyBio'
 import SectionBanner from '@/components/SectionBanner'
 import WaveName from '@/components/WaveName'
 import RoleCycler from '@/components/RoleCycler'
 import PhillyEasterEgg from '@/components/PhillyEasterEgg'
+import { featuredPhotos } from '@/lib/photos'
 
 export const metadata: Metadata = {
   title: 'Seth Sukboontip — Software Engineer',
@@ -18,7 +20,7 @@ export const metadata: Metadata = {
 
 
 export default function HomePage() {
-  const { hero, education, photos } = siteContent
+  const { hero, education, photos: photoContent } = siteContent
   const featured = projects.filter((p) => p.featured).slice(0, 4)
 
   return (
@@ -80,16 +82,21 @@ export default function HomePage() {
       {/* ── Photos ───────────────────────────────────────────────── */}
       <section className="border-b-2 border-ink">
         <SectionBanner yellow>Photography</SectionBanner>
-        <div className="px-6 md:px-16 py-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8">
-          <p className="font-body text-base leading-relaxed max-w-lg">{photos.blurb}</p>
-          <a
-            href={photos.instagramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+        <div className="grid grid-cols-2 gap-px bg-ink">
+          {featuredPhotos.map((photo) => (
+            <div key={photo.src} className="relative aspect-[3/2]">
+              <Image src={photo.src} alt={photo.alt} fill className="object-cover" />
+            </div>
+          ))}
+        </div>
+        <div className="px-6 md:px-16 py-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 border-t-2 border-ink">
+          <p className="font-body text-base leading-relaxed max-w-lg md:max-w-2xl">{photoContent.blurb}</p>
+          <Link
+            href="/photos"
             className="font-display font-bold text-xs tracking-label uppercase border-2 border-ink px-6 py-3 hover:bg-ink hover:text-bg transition-colors whitespace-nowrap self-start sm:self-auto select-none"
           >
-            @{photos.instagramHandle} →
-          </a>
+            View All Photos →
+          </Link>
         </div>
       </section>
 
