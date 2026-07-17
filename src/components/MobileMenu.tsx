@@ -35,7 +35,7 @@ export default function MobileMenu({ onClose }: Props) {
         <button
           onClick={onClose}
           aria-label="Close menu"
-          className="font-display font-bold text-2xl leading-none hover:text-red transition-colors"
+          className="font-display font-bold text-2xl leading-none hover:text-red transition-colors select-none"
         >
           ×
         </button>
@@ -50,7 +50,7 @@ export default function MobileMenu({ onClose }: Props) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={onClose}
-              className="font-display font-bold text-4xl tracking-tight py-5 border-b border-ink/20 hover:text-red transition-colors"
+              className="font-display font-bold text-4xl tracking-tight py-5 border-b border-ink/20 hover:text-red transition-colors select-none"
             >
               {link.label}
             </a>
@@ -59,7 +59,7 @@ export default function MobileMenu({ onClose }: Props) {
               key={link.href}
               href={link.href}
               onClick={onClose}
-              className="font-display font-bold text-4xl tracking-tight py-5 border-b border-ink/20 hover:text-red transition-colors"
+              className="font-display font-bold text-4xl tracking-tight py-5 border-b border-ink/20 hover:text-red transition-colors select-none"
             >
               {link.label}
             </Link>

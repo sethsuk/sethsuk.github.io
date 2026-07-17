@@ -29,7 +29,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggle}
-      className="font-display font-bold text-xs tracking-label border border-ink px-3 py-1.5 hover:bg-ink hover:text-bg transition-colors"
+      className="font-display font-bold text-xs tracking-label border border-ink px-3 py-1.5 hover:bg-ink hover:text-bg transition-colors select-none"
       aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {dark ? 'LIGHT' : 'DARK'}

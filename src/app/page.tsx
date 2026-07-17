@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 function SectionHeader({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-red dark:bg-[#2C2924] text-white dark:text-ink px-6 md:px-16 py-3 font-display font-bold text-xs tracking-label uppercase">
+    <div className="bg-red dark:bg-[#2C2924] text-white dark:text-ink px-6 md:px-16 py-3 font-display font-bold text-xs tracking-label uppercase select-none">
       {children}
     </div>
   )
@@ -53,7 +53,7 @@ export default function HomePage() {
             </div>
             <a
               href="#projects"
-              className="font-display font-bold text-xs tracking-label uppercase border-b-2 border-ink self-start pb-1 hover:text-red transition-colors"
+              className="font-display font-bold text-xs tracking-label uppercase border-b-2 border-ink self-start pb-1 hover:text-red transition-colors select-none"
             >
               ↓ Selected Projects
             </a>
@@ -72,7 +72,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Selected Work ─────────────────────────────────────────── */}
-      <section id="projects" className="border-b-2 border-ink">
+      <section id="projects" className="border-b-2 border-ink scroll-mt-[57px]">
         <SectionHeader>Selected Projects</SectionHeader>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink">
           {featured.map((project) => (
@@ -82,7 +82,7 @@ export default function HomePage() {
         <div className="px-6 md:px-16 py-8 border-t-2 border-ink flex justify-end">
           <Link
             href="/projects"
-            className="font-display font-bold text-xs tracking-label uppercase border-2 border-ink px-6 py-3 hover:bg-ink hover:text-bg transition-colors"
+            className="font-display font-bold text-xs tracking-label uppercase border-2 border-ink px-6 py-3 hover:bg-ink hover:text-bg transition-colors select-none"
           >
             View All Projects →
           </Link>
@@ -98,7 +98,7 @@ export default function HomePage() {
             href={photos.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-display font-bold text-xs tracking-label uppercase border-2 border-ink px-6 py-3 hover:bg-ink hover:text-bg transition-colors whitespace-nowrap self-start sm:self-auto"
+            className="font-display font-bold text-xs tracking-label uppercase border-2 border-ink px-6 py-3 hover:bg-ink hover:text-bg transition-colors whitespace-nowrap self-start sm:self-auto select-none"
           >
             @{photos.instagramHandle} →
           </a>
@@ -154,7 +154,7 @@ export default function HomePage() {
                   }`}
                 >
                   <span
-                    className={`font-display font-bold text-xs tracking-label px-2 py-0.5 ${
+                    className={`font-display font-bold text-xs tracking-label px-2 py-0.5 select-none ${
                       isFirst
                         ? 'bg-red text-white'
                         : 'bg-yellow text-ink dark:text-bg'

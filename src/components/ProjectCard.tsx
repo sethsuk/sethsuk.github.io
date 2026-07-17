@@ -19,7 +19,7 @@ export default function ProjectCard({ project }: Props) {
     >
       <div className="p-5 pb-3">
         <span
-          className={`inline-block ${badgeBg} ${badgeText} font-display font-bold text-xl px-3 py-0.5`}
+          className={`inline-block ${badgeBg} ${badgeText} font-display font-bold text-xl px-3 py-0.5 select-none`}
         >
           {project.number}
         </span>

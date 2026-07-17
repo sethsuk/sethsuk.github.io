@@ -29,7 +29,7 @@ export default function Footer() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-display font-bold text-xs tracking-label uppercase hover:text-red transition-colors"
+              className="font-display font-bold text-xs tracking-label uppercase hover:text-red transition-colors select-none"
             >
               {label}
             </a>
