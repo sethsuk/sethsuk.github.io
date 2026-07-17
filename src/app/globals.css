@@ -59,6 +59,29 @@ html {
   animation: wipe-in 500ms ease-out forwards;
 }
 
+/* Email "Copied!" tooltip */
+@keyframes copied-pop {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(4px); }
+  15%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+  75%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-4px); }
+}
+.copied-badge {
+  animation: copied-pop 1500ms ease forwards;
+}
+
+/* Mobile menu slide in/out from right */
+@keyframes slide-in-right {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+@keyframes slide-out-right {
+  from { transform: translateX(0); }
+  to   { transform: translateX(100%); }
+}
+.menu-enter { animation: slide-in-right 250ms ease-out forwards; }
+.menu-exit  { animation: slide-out-right 200ms ease-in  forwards; }
+
 /* Restore sane defaults stripped by the reset above */
 p + p {
   margin-top: 1em;

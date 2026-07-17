@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { projects } from '@/lib/projects'
 import ProjectCard from '@/components/ProjectCard'
+import SectionBanner from '@/components/SectionBanner'
 
 export const metadata: Metadata = {
   title: 'Projects',
@@ -10,9 +11,7 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <>
-      <div className="bg-red dark:bg-[#2C2924] text-white dark:text-ink px-6 md:px-16 py-3 font-display font-bold text-xs tracking-label uppercase border-b-2 border-ink">
-        Projects
-      </div>
+      <SectionBanner bordered>Projects</SectionBanner>
 
       <div className="px-6 md:px-16 py-8 border-b-2 border-ink">
         <h1 className="text-display font-display font-bold">Projects</h1>

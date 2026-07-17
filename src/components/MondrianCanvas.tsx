@@ -65,6 +65,7 @@ const Cell = memo(function Cell({
 
 export default function MondrianCanvas() {
   const [baseColor, setBaseColor] = useState('#D4351C')
+  const [hintVerb, setHintVerb] = useState('Click')
   const [hLines, setHLines] = useState<HLine[]>([])
   const [vLines, setVLines] = useState<VLine[]>([])
   const [colors, setColors] = useState<Record<string, string>>({})
@@ -77,6 +78,7 @@ export default function MondrianCanvas() {
 
   useEffect(() => {
     setBaseColor(ACCENTS[Math.floor(Math.random() * ACCENTS.length)])
+    if (window.matchMedia('(pointer: coarse)').matches) setHintVerb('Tap')
   }, [])
 
   const pick = useCallback(() => {
@@ -282,7 +284,7 @@ export default function MondrianCanvas() {
       {!hasContent && (
         <div className="absolute inset-0 flex items-end justify-start p-4 z-20 pointer-events-none">
           <span className="font-display font-bold text-[10px] tracking-label uppercase text-black/40">
-            Click to compose
+            {hintVerb} to compose
           </span>
         </div>
       )}

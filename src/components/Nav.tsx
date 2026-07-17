@@ -49,7 +49,7 @@ export default function Nav() {
           </div>
 
           <button
-            className="md:hidden font-display font-bold text-xl leading-none hover:text-red transition-colors select-none"
+            className="md:hidden font-display font-bold text-xl leading-none hover:text-red transition-colors select-none p-2 -mr-2"
             onClick={() => setMobileOpen(true)}
             aria-label="Open navigation menu"
           >

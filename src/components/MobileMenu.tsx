@@ -1,21 +1,30 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { siteContent } from '@/lib/content'
 import ThemeToggle from './ThemeToggle'
+
+const ANIM_MS = 200
 
 interface Props {
   onClose: () => void
 }
 
 export default function MobileMenu({ onClose }: Props) {
+  const [closing, setClosing] = useState(false)
+
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     return () => {
       document.body.style.overflow = ''
     }
   }, [])
+
+  const handleClose = () => {
+    setClosing(true)
+    setTimeout(onClose, ANIM_MS)
+  }
 
   const links: { href: string; label: string; external?: boolean }[] = [
     { href: '/', label: 'HOME' },
@@ -27,15 +36,15 @@ export default function MobileMenu({ onClose }: Props) {
   ]
 
   return (
-    <div className="fixed inset-0 z-50 bg-bg flex flex-col border-r-2 border-ink">
+    <div className={`fixed inset-0 z-50 bg-bg flex flex-col ${closing ? 'menu-exit' : 'menu-enter'}`}>
       <div className="flex items-center justify-between px-6 py-4 border-b-2 border-ink">
-        <span className="font-display font-bold text-xs tracking-label uppercase">
+        <span className="font-display font-bold text-xs tracking-label uppercase select-none">
           Menu
         </span>
         <button
-          onClick={onClose}
+          onClick={handleClose}
           aria-label="Close menu"
-          className="font-display font-bold text-2xl leading-none hover:text-red transition-colors select-none"
+          className="font-display font-bold text-2xl leading-none hover:text-red transition-colors select-none p-2 -mr-2"
         >
           ×
         </button>

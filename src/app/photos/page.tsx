@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { siteContent } from '@/lib/content'
+import SectionBanner from '@/components/SectionBanner'
 
 export const metadata: Metadata = {
   title: 'Photography',
@@ -11,9 +12,7 @@ export default function PhotosPage() {
 
   return (
     <>
-      <div className="bg-red dark:bg-[#2C2924] text-white dark:text-ink px-6 md:px-16 py-3 font-display font-bold text-xs tracking-label uppercase border-b-2 border-ink">
-        Photography
-      </div>
+      <SectionBanner yellow bordered>Photography</SectionBanner>
 
       <div className="px-6 md:px-16 py-12 border-b-2 border-ink">
         <h1 className="text-display font-display font-bold">Photography</h1>

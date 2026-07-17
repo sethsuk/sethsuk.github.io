@@ -4,6 +4,8 @@ import { siteContent } from '@/lib/content'
 import { projects } from '@/lib/projects'
 import ProjectCard from '@/components/ProjectCard'
 import MondrianCanvas from '@/components/MondrianCanvas'
+import KilroyBio from '@/components/KilroyBio'
+import SectionBanner from '@/components/SectionBanner'
 
 export const metadata: Metadata = {
   title: 'Seth Sukboontip — Software Engineer',
@@ -11,13 +13,6 @@ export const metadata: Metadata = {
     'Software Engineer based in Philadelphia, PA. MSE + BS in Computer Science at the University of Pennsylvania.',
 }
 
-function SectionHeader({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="bg-red dark:bg-[#2C2924] text-white dark:text-ink px-6 md:px-16 py-3 font-display font-bold text-xs tracking-label uppercase select-none">
-      {children}
-    </div>
-  )
-}
 
 export default function HomePage() {
   const { hero, education, awards, photos } = siteContent
@@ -64,8 +59,8 @@ export default function HomePage() {
             <div className="flex-1 relative overflow-hidden min-h-[240px]">
               <MondrianCanvas />
             </div>
-            <div className="border-t-2 border-ink px-8 py-8">
-              <p className="font-body text-base leading-relaxed">{hero.bio}</p>
+            <div className="border-t-2 border-ink px-6 py-8">
+              <KilroyBio />
             </div>
           </div>
         </div>
@@ -73,7 +68,7 @@ export default function HomePage() {
 
       {/* ── Selected Work ─────────────────────────────────────────── */}
       <section id="projects" className="border-b-2 border-ink scroll-mt-[57px]">
-        <SectionHeader>Selected Projects</SectionHeader>
+        <SectionBanner>Selected Projects</SectionBanner>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink">
           {featured.map((project) => (
             <ProjectCard key={project.slug} project={project} />
@@ -91,7 +86,7 @@ export default function HomePage() {
 
       {/* ── Photos ───────────────────────────────────────────────── */}
       <section className="border-b-2 border-ink">
-        <SectionHeader>Photography</SectionHeader>
+        <SectionBanner yellow>Photography</SectionBanner>
         <div className="px-6 md:px-16 py-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8">
           <p className="font-body text-base leading-relaxed max-w-lg">{photos.blurb}</p>
           <a
@@ -107,7 +102,7 @@ export default function HomePage() {
 
       {/* ── Education ─────────────────────────────────────────────── */}
       <section className="border-b-2 border-ink">
-        <SectionHeader>Education</SectionHeader>
+        <SectionBanner>Education</SectionBanner>
         <div className="px-6 md:px-16 py-12">
           <div className="border-2 border-ink p-8">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
@@ -141,7 +136,7 @@ export default function HomePage() {
 
       {/* ── Awards ────────────────────────────────────────────────── */}
       <section className="border-b-2 border-ink">
-        <SectionHeader>Awards</SectionHeader>
+        <SectionBanner yellow>Awards</SectionBanner>
         <div className="px-6 md:px-16 py-12">
           <div className="border-2 border-ink">
             {awards.map((award, i) => {
@@ -149,12 +144,12 @@ export default function HomePage() {
               return (
                 <div
                   key={i}
-                  className={`flex flex-wrap items-center gap-4 px-6 py-4 ${
+                  className={`flex items-start gap-4 px-6 py-4 ${
                     i < awards.length - 1 ? 'border-b-2 border-ink' : ''
                   }`}
                 >
                   <span
-                    className={`font-display font-bold text-xs tracking-label px-2 py-0.5 select-none ${
+                    className={`font-display font-bold text-xs tracking-label px-2 py-0.5 select-none shrink-0 ${
                       isFirst
                         ? 'bg-red text-white'
                         : 'bg-yellow text-ink dark:text-bg'
@@ -162,16 +157,13 @@ export default function HomePage() {
                   >
                     {award.place}
                   </span>
-                  <span className="font-display font-bold text-sm">
-                    {award.title}
-                  </span>
-                  <span className="font-display text-xs opacity-50">·</span>
-                  <span className="font-display text-xs opacity-60 flex-1 min-w-0">
-                    {award.event}
-                  </span>
-                  <span className="font-display text-xs opacity-50 ml-auto">
-                    {award.year}
-                  </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-baseline justify-between gap-3">
+                      <span className="font-display font-bold text-sm">{award.title}</span>
+                      <span className="font-display text-xs opacity-50 shrink-0">{award.year}</span>
+                    </div>
+                    <p className="font-display text-xs opacity-60 mt-0.5">{award.event}</p>
+                  </div>
                 </div>
               )
             })}

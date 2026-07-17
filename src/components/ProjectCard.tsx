@@ -9,7 +9,7 @@ interface Props {
 export default function ProjectCard({ project }: Props) {
   const isOdd = parseInt(project.number, 10) % 2 !== 0
   const badgeBg = isOdd ? 'bg-red' : 'bg-yellow'
-  const badgeText = isOdd ? 'text-white' : 'text-ink'
+  const badgeText = isOdd ? 'text-white' : 'text-ink dark:text-bg'
   const hasImage = project.imageUrl && project.imageUrl.length > 0
 
   return (

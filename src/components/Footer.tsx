@@ -1,7 +1,25 @@
+'use client'
+
+import { useState } from 'react'
 import { siteContent } from '@/lib/content'
 
 export default function Footer() {
   const { email, linkedin, github, resumeUrl } = siteContent.contact
+  const [copied, setCopied] = useState(false)
+  const [thatIsMe, setThatIsMe] = useState(false)
+
+  const handleCopy = async () => {
+    if (copied) return
+    await navigator.clipboard.writeText(email)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1500)
+  }
+
+  const handleName = () => {
+    if (thatIsMe) return
+    setThatIsMe(true)
+    setTimeout(() => setThatIsMe(false), 1500)
+  }
 
   const links = [
     { href: linkedin, label: 'LinkedIn' },
@@ -12,16 +30,33 @@ export default function Footer() {
 
   return (
     <footer className="border-t-2 border-ink">
-      <div className="px-6 md:px-16 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <span className="font-display text-xs tracking-label">
-          © 2026 Seth Sukboontip&nbsp;&nbsp;·&nbsp;&nbsp;
-          <a
-            href={`mailto:${email}`}
-            className="hover:text-red transition-colors"
+      <div className="px-6 md:px-16 pt-12 pb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="font-display text-xs tracking-label">
+          ©&nbsp;2026&nbsp;
+          <button
+            onClick={handleName}
+            className="relative hover:text-red transition-colors"
+          >
+            Seth Sukboontip
+            {thatIsMe && (
+              <span className="copied-badge absolute -top-8 left-1/2 bg-ink text-bg font-display font-bold text-[10px] tracking-label uppercase px-2 py-1 whitespace-nowrap pointer-events-none">
+                that's me!
+              </span>
+            )}
+          </button>
+          &nbsp;&nbsp;·&nbsp;&nbsp;
+          <button
+            onClick={handleCopy}
+            className="relative hover:text-red transition-colors"
           >
             {email}
-          </a>
-        </span>
+            {copied && (
+              <span className="copied-badge absolute -top-8 left-1/2 bg-ink text-bg font-display font-bold text-[10px] tracking-label uppercase px-2 py-1 whitespace-nowrap pointer-events-none">
+                Copied!
+              </span>
+            )}
+          </button>
+        </div>
         <div className="flex items-center gap-6 flex-wrap">
           {links.map(({ href, label }) => (
             <a
