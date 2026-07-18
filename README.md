@@ -1,7 +1,6 @@
-# Personal Portfolio Website
+# sethsukboontip.com
 
-This repository is for a little website I made to introduce myself using HTML & CSS. Enjoy!
+Personal portfolio of [Seth Sukboontip](https://sethsukboontip.com) — software engineer and student at the University of Pennsylvania.
 
-## Live Website
+Built with Next.js, Tailwind CSS, and deployed to GitHub Pages.
 
-Access the live website [here](https://sethsuk.github.io/)!

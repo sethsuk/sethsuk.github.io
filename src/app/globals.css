@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f5f0e8;
+  --ink: #1a1a1a;
+  --eagles-green: #004C54;
+}
+
+.dark {
+  --bg: #1a1614;
+  --ink: #f0ebe0;
+  --eagles-green: #4CBB17;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  border-radius: 0 !important;
+}
+
+html {
+  background-color: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Theme switch transition.
+   Specificity 0 — Tailwind's .transition-colors class overrides this on interactive elements,
+   keeping hover states at their own (faster) duration. */
+* {
+  transition-property: background-color, color, border-color;
+  transition-duration: 250ms;
+  transition-timing-function: ease;
+}
+
+/* ── Animations ─────────────────────────────────────────────── */
+
+/* Mondrian line draw outward from click point */
+@keyframes drawH {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes drawV {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+
+/* Page load left-to-right wipe */
+@keyframes wipe-in {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+.page-wipe {
+  animation: wipe-in 500ms ease-out forwards;
+}
+
+/* Email "Copied!" tooltip */
+@keyframes copied-pop {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(4px); }
+  15%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+  75%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-4px); }
+}
+.copied-badge {
+  animation: copied-pop 1500ms ease forwards;
+}
+
+/* Photo caption pop-up (no horizontal centering — anchors to left or right of word) */
+@keyframes pop-up {
+  0%   { opacity: 0; transform: translateY(4px); }
+  15%  { opacity: 1; transform: translateY(0); }
+  75%  { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-4px); }
+}
+.pop-badge {
+  animation: pop-up 1500ms ease forwards;
+}
+
+/* Downward tooltip (Photography banner) */
+@keyframes copied-pop-down {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(-4px); }
+  15%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+  75%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(4px); }
+}
+.copied-badge-down {
+  animation: copied-pop-down 1500ms ease forwards;
+}
+
+/* Hero name letter wave */
+@keyframes letter-wave {
+  0%, 100% { transform: translateY(0); }
+  40%       { transform: translateY(-0.3em); }
+}
+
+/* RoleCycler blinking cursor */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.typewriter-cursor {
+  animation: cursor-blink 800ms step-end infinite;
+  margin-left: 1px;
+}
+
+/* Mobile menu slide in/out from right */
+@keyframes slide-in-right {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+@keyframes slide-out-right {
+  from { transform: translateX(0); }
+  to   { transform: translateX(100%); }
+}
+.menu-enter { animation: slide-in-right 250ms ease-out forwards; }
+.menu-exit  { animation: slide-out-right 200ms ease-in  forwards; }
+
+/* Restore sane defaults stripped by the reset above */
+p + p {
+  margin-top: 1em;
+}
+
+a {
+  color: inherit;
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
