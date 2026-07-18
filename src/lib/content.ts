@@ -42,7 +42,7 @@ export const siteContent = {
 
   photos: {
     blurb:
-      'Some of my favorite shots from around the world on film and digital.',
+      'Some of my favorite shots on film and digital.',
     instagramHandle: 'kilroys_magical_world',
     instagramUrl: 'https://instagram.com/kilroys_magical_world',
   },

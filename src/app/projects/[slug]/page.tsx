@@ -31,7 +31,7 @@ export default async function ProjectPage({ params }: Props) {
   const badgeBg = isOdd ? 'bg-red' : 'bg-yellow'
   const badgeText = isOdd ? 'text-white' : 'text-ink dark:text-bg'
   const hasImage = !!project.imageUrl
-  const hasLinks = !!project.githubUrl || !!project.liveUrl
+  const hasLinks = !!project.githubUrl || !!project.liveUrl || !!project.reportUrl
 
   return (
     <div className="max-w-4xl mx-auto px-6 md:px-16 py-12">
@@ -90,6 +90,16 @@ export default async function ProjectPage({ params }: Props) {
           {project.liveUrl && (
             <a
               href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-display font-bold text-xs tracking-label uppercase border-2 border-ink px-6 py-3 hover:bg-ink hover:text-bg transition-colors"
+            >
+              → Live Demo
+            </a>
+          )}
+          {project.reportUrl && (
+            <a
+              href={project.reportUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="font-display font-bold text-xs tracking-label uppercase border-2 border-ink px-6 py-3 hover:bg-ink hover:text-bg transition-colors"

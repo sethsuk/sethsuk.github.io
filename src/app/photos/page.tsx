@@ -19,14 +19,21 @@ export default function PhotosPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink border-b-2 border-ink">
         {photos.map((photo) => (
-          <Image
-            key={photo.src}
-            src={photo.src}
-            alt={photo.alt}
-            width={photo.width}
-            height={photo.height}
-            style={{ width: '100%', height: 'auto', display: 'block' }}
-          />
+          <div key={photo.src} className="flex flex-col bg-bg">
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              width={photo.width}
+              height={photo.height}
+              style={{ width: '100%', height: 'auto', display: 'block' }}
+            />
+            {(photo.location || photo.medium) && (
+              <div className="bg-ink text-bg px-4 py-2 font-display text-xs tracking-label uppercase select-none flex justify-between">
+                <span>{photo.location}</span>
+                {photo.medium && <span className="opacity-60">{photo.medium}</span>}
+              </div>
+            )}
+          </div>
         ))}
       </div>
 
