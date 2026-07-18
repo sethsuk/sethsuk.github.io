@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { projects } from '@/lib/projects'
+import BackButton from '@/components/BackButton'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -35,18 +35,13 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <div className="max-w-4xl mx-auto px-6 md:px-16 py-12">
-      <Link
-        href="/projects"
-        className="font-display font-bold text-xs tracking-label uppercase hover:text-red transition-colors inline-flex items-center gap-2"
-      >
-        ← Back to Projects
-      </Link>
+      <BackButton />
 
       <hr className="border-t-2 border-ink my-8" />
 
-      <div className="flex items-start gap-5 select-none">
+      <div className="flex items-start gap-5">
         <span
-          className={`${badgeBg} ${badgeText} font-display font-bold text-2xl px-4 py-1.5 shrink-0`}
+          className={`${badgeBg} ${badgeText} font-display font-bold text-2xl px-4 py-1.5 shrink-0 select-none`}
         >
           {project.number}
         </span>
@@ -61,18 +56,19 @@ export default async function ProjectPage({ params }: Props) {
       </div>
 
       {hasImage && (
-        <div className="relative w-full aspect-video border-2 border-ink mt-10">
+        <div className="border-2 border-ink mt-10">
           <Image
             src={project.imageUrl!}
             alt={project.title}
-            fill
-            className="object-cover"
+            width={1600}
+            height={900}
+            style={{ width: '100%', height: 'auto', display: 'block' }}
           />
         </div>
       )}
 
       <div className="mt-10">
-        <span className="font-display font-bold text-xs tracking-label uppercase border-b-2 border-ink pb-1">
+        <span className="font-display font-bold text-xs tracking-label uppercase border-b-2 border-ink pb-1 select-none">
           Overview
         </span>
         <hr className="border-t-2 border-ink mt-0 mb-6" />

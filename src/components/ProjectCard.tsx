@@ -25,18 +25,7 @@ export default function ProjectCard({ project }: Props) {
         </span>
       </div>
 
-      {hasImage && (
-        <div className="relative w-full aspect-video border-t border-b border-ink/20 group-hover:border-bg/20">
-          <Image
-            src={project.imageUrl!}
-            alt={project.title}
-            fill
-            className="object-cover"
-          />
-        </div>
-      )}
-
-      <div className="p-5 pt-3 flex flex-col flex-1 justify-end">
+<div className="p-5 pt-3 flex flex-col flex-1 justify-end">
         <h3 className="font-display font-bold text-xl leading-tight tracking-tight">
           {project.title}
         </h3>

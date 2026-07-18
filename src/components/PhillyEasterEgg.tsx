@@ -32,7 +32,7 @@ export default function PhillyEasterEgg({ location, className }: { location: str
   return (
     <p
       onClick={handleClick}
-      className={className ?? 'font-display font-medium text-sm tracking-label uppercase cursor-pointer select-none'}
+      className={`p-3 -m-3 w-fit ${className ?? 'font-display font-medium text-sm tracking-label uppercase cursor-pointer select-none'}`}
       style={{
         opacity: visible ? 1 : 0,
         transition: 'opacity 150ms ease, color 150ms ease',

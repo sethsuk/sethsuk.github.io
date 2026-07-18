@@ -21,7 +21,7 @@ const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t===
 export const metadata: Metadata = {
   title: {
     default: 'Seth Sukboontip',
-    template: '%s — Seth Sukboontip',
+    template: '%s',
   },
   description:
     'Software Engineer based in Philadelphia, PA. MSE + BS in Computer Science at the University of Pennsylvania.',

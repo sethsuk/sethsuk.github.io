@@ -10,10 +10,11 @@ import SectionBanner from '@/components/SectionBanner'
 import WaveName from '@/components/WaveName'
 import RoleCycler from '@/components/RoleCycler'
 import PhillyEasterEgg from '@/components/PhillyEasterEgg'
+import ScrollToProjects from '@/components/ScrollToProjects'
 import { featuredPhotos } from '@/lib/photos'
 
 export const metadata: Metadata = {
-  title: 'Seth Sukboontip — Software Engineer',
+  title: 'Seth Sukboontip',
   description:
     'Software Engineer based in Philadelphia, PA. MSE + BS in Computer Science at the University of Pennsylvania.',
 }
@@ -41,12 +42,7 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-            <a
-              href="#projects"
-              className="font-display font-bold text-xs tracking-label uppercase border-b-2 border-ink self-start pb-1 hover:text-red transition-colors select-none"
-            >
-              ↓ Work
-            </a>
+            <ScrollToProjects />
           </div>
 
           {/* Right: mondrian canvas + bio */}
