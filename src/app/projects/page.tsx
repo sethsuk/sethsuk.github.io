@@ -19,7 +19,7 @@ export default function ProjectsPage() {
 
       <div className="px-6 md:px-16 py-8 border-b-2 border-ink">
         <h1 className="text-display font-display font-bold">Projects</h1>
-        <p className="font-display text-xs tracking-label uppercase opacity-60 mt-2">
+        <p className="font-display text-xs tracking-label uppercase opacity-60 mt-2 select-none">
           {projects.length} projects
         </p>
       </div>

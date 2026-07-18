@@ -29,7 +29,7 @@ export default async function ProjectPage({ params }: Props) {
 
   const isOdd = parseInt(project.number, 10) % 2 !== 0
   const badgeBg = isOdd ? 'bg-red' : 'bg-yellow'
-  const badgeText = isOdd ? 'text-white' : 'text-ink'
+  const badgeText = isOdd ? 'text-white' : 'text-ink dark:text-bg'
   const hasImage = !!project.imageUrl
   const hasLinks = !!project.githubUrl || !!project.liveUrl
 
@@ -44,7 +44,7 @@ export default async function ProjectPage({ params }: Props) {
 
       <hr className="border-t-2 border-ink my-8" />
 
-      <div className="flex items-start gap-5">
+      <div className="flex items-start gap-5 select-none">
         <span
           className={`${badgeBg} ${badgeText} font-display font-bold text-2xl px-4 py-1.5 shrink-0`}
         >
