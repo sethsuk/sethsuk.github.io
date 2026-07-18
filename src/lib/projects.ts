@@ -18,7 +18,7 @@ export const projects: Project[] = [
     title: 'PennCloud',
     tagline: 'Distributed Cloud Storage & Email Platform',
     description:
-      "PennCloud is a distributed cloud storage and email platform that replicates core functionality of Google Drive and Gmail, supporting file upload/download and sending/receiving mail both within the PennCloud ecosystem and to external addresses. The backend is built on a custom distributed key-value store modeled after Google's BigTable, with data replicated across primary and secondary nodes to provide multi-node crash fault tolerance. Each node periodically checkpoints its state to disk and maintains an operation log to support recovery after failure. On top of this storage layer, we built a multiplayer Blackjack minigame, and deployed the full system on AWS.",
+      "PennCloud replicates the core functionality of Google Drive and Gmail — file uploads and downloads, sending and receiving email both within the platform and to external addresses. Under the hood, everything runs on a custom distributed key-value store modeled after Google's BigTable, with data replicated across primary and secondary nodes. Each node checkpoints its state to disk and maintains an operation log, so the system recovers cleanly from failures. We also snuck a multiplayer Blackjack game on top of the storage layer, then deployed the whole thing on AWS.",
     reportUrl: 'https://drive.google.com/file/d/1NWWr8HsYbwdtMePH_BEoCvLqEUDHMvdu/view?usp=sharing',
     imageUrl: '/projects/penncloud.png',
     featured: true,
@@ -40,7 +40,7 @@ export const projects: Project[] = [
     title: 'InstaLite',
     tagline: 'Social Media App',
     description:
-      'InstaLite is a full-featured social media platform inspired by Instagram, featuring user profiles, image-based search, post feeds, nested comments, real-time chat, and profile discovery. The backend is built and tested with Node.js, powered by RESTful APIs that handle user interactions and content management. Data is managed through a scalable schema on AWS RDS (MySQL) and S3, with auxiliary tables and optimized queries ensuring consistency and efficient access across the application. Additionally, InstaLite relied on the vector database ChromaDB and image embeddings to support similarity queries and actors that look similar to the user profile picture.',
+      'InstaLite is an Instagram clone built for scale — profiles, post feeds, nested comments, real-time chat, and profile discovery. The backend runs on Node.js with a MySQL schema on AWS RDS and file storage on S3, with custom indices and optimized queries keeping things fast. The most interesting piece was using ChromaDB vector embeddings to power image similarity search, letting users find celebrities who look like their profile photo.',
     githubUrl: 'https://github.com/sethsuk/InstaLite',
     reportUrl: 'https://drive.google.com/file/d/1xTLcAzz--ulZxU70RGf1uFbWh-M8OaWV/view?usp=sharing',
     imageUrl: '/projects/instalite.png',
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     title: 'PennOS',
     tagline: 'Custom UNIX-like Operating System',
     description:
-      'PennOS is a custom UNIX-like operating system that runs as a single process on a host OS, using the spthread library to simulate independent processes as threads scheduled by a custom kernel. The kernel maintains process control blocks (PCBs) tracking PID, parent/child relationships, file descriptors, priority, and state (running, blocked, stopped, zombie), with custom signal handling (P_SIGSTOP, P_SIGCONT, P_SIGTERM) and an init-based model for reaping orphaned and zombie processes. A priority-based round-robin scheduler runs on a 100ms clock tick across three weighted priority queues, idling via sigsuspend when no processes are runnable. PennOS mounts a custom PennFAT file system, with system calls (s_open, s_read, s_write, s_close, s_lseek, s_unlink) backed by per-process and system-wide file descriptor tables. On top of this, we built an interactive shell with built-in commands (cat, ls, cp, mv, rm, chmod, ps, kill, nice, jobs, bg, fg, etc.), I/O redirection, job control, and shell scripting, along with structured logging for scheduling and process lifecycle events.',
+      'PennOS is a UNIX-like operating system that runs as a single process on a host machine, using threads to simulate independent processes scheduled by a custom kernel. The kernel tracks each process through a PCB — PID, parent/child relationships, file descriptors, priority, and state — and handles signals with an init-based model for reaping zombies. Scheduling is priority-based round-robin across three weighted queues, firing on a 100ms clock tick. Storage is handled by a custom FAT file system with its own system calls. On top of all of that, we built a fully interactive shell with job control, I/O redirection, and scripting support.',
     imageUrl: '',
     featured: true,
   },
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     title: 'NYC Rideshare',
     tagline: 'Fare Predictions from 125M NYC Rides',
     description:
-      'NYC Rideshare is a full-stack webapp that predicts Uber prices using real-time weather, location, and time inputs. Powered by Node.js, React, and Express, it lets users query specific and aggregated ride information, create accounts, and log rides. It uses over 125 million Uber ride records and hourly weather data from 2021, which is stored on an AWS RDS (PostgreSQL) instanced, with optimizations like custom indices and materialized views.',
+      'NYC Rideshare predicts Uber fares using real-time inputs — pickup location, time of day, and current weather — trained on 125 million ride records and hourly weather data from 2021. The app is built on Node.js, React, and Express, backed by PostgreSQL on AWS RDS. Handling data at that scale required some care: custom indices and materialized views keep queries fast even against a table that large.',
     githubUrl: 'https://github.com/sethsuk/nyc-ride-share',
     reportUrl: 'https://drive.google.com/file/d/1bMusC5OYKGzh7-5lXMfJD56l302kN9yO/view?usp=drive_link',
     imageUrl: '/projects/nyc_rideshare.png',
