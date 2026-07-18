@@ -29,59 +29,30 @@ export default function Image() {
         }}
       >
         {/* Bauhaus shapes */}
-        <div style={{ display: 'flex', gap: 10 }}>
+        <div style={{ display: 'flex', gap: 10, alignItems: 'flex-end' }}>
           <div style={{ width: 48, height: 48, background: RED }} />
-          <svg width={48} height={48} viewBox="0 0 13 13">
-            <polygon points="6.5,0 13,13 0,13" fill={YELLOW} />
-          </svg>
-          <div
-            style={{
-              width: 48,
-              height: 48,
-              background: INK,
-              borderRadius: '50%',
-            }}
-          />
+          <div style={{ width: 0, height: 0, borderLeft: '24px solid transparent', borderRight: '24px solid transparent', borderBottom: `48px solid ${YELLOW}` }} />
+          <div style={{ width: 48, height: 48, background: INK, borderRadius: '50%' }} />
         </div>
 
         {/* Name + title */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-          <div
-            style={{
-              fontSize: 96,
-              fontWeight: 700,
-              color: INK,
-              lineHeight: 1,
-              letterSpacing: '-2px',
-              textTransform: 'uppercase',
-            }}
-          >
+          <div style={{ fontSize: 96, fontWeight: 700, color: INK, lineHeight: 1, letterSpacing: '-2px', textTransform: 'uppercase' }}>
             Seth Sukboontip
           </div>
-          <div
-            style={{
-              fontSize: 28,
-              color: INK,
-              opacity: 0.5,
-              letterSpacing: '4px',
-              textTransform: 'uppercase',
-            }}
-          >
+          <div style={{ fontSize: 28, color: INK, opacity: 0.5, letterSpacing: '4px', textTransform: 'uppercase' }}>
             Software Engineer · Philadelphia, PA
           </div>
         </div>
 
         {/* Bottom accent */}
-        <div style={{ display: 'flex', gap: 0 }}>
+        <div style={{ display: 'flex' }}>
           <div style={{ height: 6, flex: 2, background: RED }} />
           <div style={{ height: 6, flex: 1, background: YELLOW }} />
           <div style={{ height: 6, flex: 1, background: INK }} />
         </div>
       </div>
     ),
-    {
-      ...size,
-      fonts: [{ name: 'SpaceGrotesk', data: font, weight: 700 }],
-    }
+    { ...size, fonts: [{ name: 'SpaceGrotesk', data: font, weight: 700 }] }
   )
 }

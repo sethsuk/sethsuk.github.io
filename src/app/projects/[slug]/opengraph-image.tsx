@@ -6,11 +6,6 @@ import { projects } from '@/lib/projects'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
-const BG = '#f5f0e8'
-const INK = '#1a1a1a'
-const RED = '#D4351C'
-const YELLOW = '#F2C94C'
-
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }))
 }
@@ -21,6 +16,11 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   if (!project) return new Response('Not found', { status: 404 })
 
   const font = readFileSync(join(process.cwd(), 'src/lib/fonts/SpaceGrotesk-Bold.ttf'))
+
+  const BG = '#f5f0e8'
+  const INK = '#1a1a1a'
+  const RED = '#D4351C'
+  const YELLOW = '#F2C94C'
 
   const isOdd = parseInt(project.number, 10) % 2 !== 0
   const badgeBg = isOdd ? RED : YELLOW
@@ -41,16 +41,12 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           border: `8px solid ${INK}`,
         }}
       >
-        {/* Bauhaus shapes */}
-        <div style={{ display: 'flex', gap: 10 }}>
+        <div style={{ display: 'flex', gap: 10, alignItems: 'flex-end' }}>
           <div style={{ width: 48, height: 48, background: RED }} />
-          <svg width={48} height={48} viewBox="0 0 13 13">
-            <polygon points="6.5,0 13,13 0,13" fill={YELLOW} />
-          </svg>
+          <div style={{ width: 0, height: 0, borderLeft: '24px solid transparent', borderRight: '24px solid transparent', borderBottom: `48px solid ${YELLOW}` }} />
           <div style={{ width: 48, height: 48, background: INK, borderRadius: '50%' }} />
         </div>
 
-        {/* Content */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
             <div style={{ background: badgeBg, color: badgeText, fontSize: 32, fontWeight: 700, padding: '4px 16px' }}>
@@ -75,9 +71,6 @@ export default async function Image({ params }: { params: Promise<{ slug: string
         </div>
       </div>
     ),
-    {
-      ...size,
-      fonts: [{ name: 'SpaceGrotesk', data: font, weight: 700 }],
-    }
+    { ...size, fonts: [{ name: 'SpaceGrotesk', data: font, weight: 700 }] }
   )
 }

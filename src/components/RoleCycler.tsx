@@ -8,7 +8,7 @@ const ERASE_MS = 35
 const HOLD_MS  = 2200
 
 export default function RoleCycler() {
-  const [text, setText]       = useState(ROLES[0])
+  const [text, setText]       = useState<string>(ROLES[0])
   const [roleIdx, setRoleIdx] = useState(0)
   const [phase, setPhase]     = useState<'hold' | 'erase' | 'type'>('hold')
 
