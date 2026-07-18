@@ -19,7 +19,7 @@ export default function PhotosPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink border-b-2 border-ink">
         {photos.map((photo) => (
-          <div key={photo.src} className="flex flex-col bg-bg">
+          <div key={photo.src} className="flex flex-col">
             <Image
               src={photo.src}
               alt={photo.alt}
@@ -28,7 +28,7 @@ export default function PhotosPage() {
               style={{ width: '100%', height: 'auto', display: 'block' }}
             />
             {(photo.location || photo.medium) && (
-              <div className="bg-ink text-bg px-4 py-2 font-display text-xs tracking-label uppercase select-none flex justify-between">
+              <div className="flex-1 bg-ink text-bg px-4 py-2 font-display text-xs tracking-label uppercase select-none flex justify-between items-center">
                 <span>{photo.location}</span>
                 {photo.medium && <span className="opacity-60">{photo.medium}</span>}
               </div>
@@ -50,7 +50,7 @@ export default function PhotosPage() {
           rel="noopener noreferrer"
           className="font-display font-bold text-xs tracking-label uppercase border-2 border-ink px-6 py-3 hover:bg-ink hover:text-bg transition-colors select-none"
         >
-          → Instagram (@{instagramHandle})
+          → Instagram<span className="hidden sm:inline"> (@{instagramHandle})</span>
         </a>
       </div>
     </>

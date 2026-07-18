@@ -80,12 +80,12 @@ export default function HomePage() {
         <SectionBanner yellow>Photography</SectionBanner>
         <div className="grid grid-cols-2 gap-px bg-ink">
           {featuredPhotos.map((photo) => (
-            <div key={photo.src} className="flex flex-col bg-bg">
+            <div key={photo.src} className="flex flex-col">
               <div className="relative aspect-[3/2]">
                 <Image src={photo.src} alt={photo.alt} fill className="object-cover" />
               </div>
               {(photo.location || photo.medium) && (
-                <div className="bg-ink text-bg px-4 py-2 font-display text-xs tracking-label uppercase select-none flex justify-between">
+                <div className="flex-1 bg-ink text-bg px-4 py-2 font-display text-xs tracking-label uppercase select-none flex justify-between items-center">
                   <span>{photo.location}</span>
                   {photo.medium && <span className="opacity-60">{photo.medium}</span>}
                 </div>
