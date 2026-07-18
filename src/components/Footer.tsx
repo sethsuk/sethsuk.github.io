@@ -30,7 +30,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t-2 border-ink">
-      <div className="px-6 md:px-16 pt-12 pb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="px-6 md:px-16 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div className="font-display text-xs tracking-label">
           ©&nbsp;2026&nbsp;
           <button

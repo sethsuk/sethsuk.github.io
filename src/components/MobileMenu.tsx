@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { siteContent } from '@/lib/content'
 import ThemeToggle from './ThemeToggle'
 
@@ -13,11 +13,13 @@ interface Props {
 
 export default function MobileMenu({ onClose }: Props) {
   const [closing, setClosing] = useState(false)
+  const navigatingRef = useRef(false)
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     return () => {
       document.body.style.overflow = ''
+      if (navigatingRef.current) window.scrollTo(0, 0)
     }
   }, [])
 
@@ -67,7 +69,7 @@ export default function MobileMenu({ onClose }: Props) {
             <Link
               key={link.href}
               href={link.href}
-              onClick={onClose}
+              onClick={() => { navigatingRef.current = true; onClose() }}
               className="font-display font-bold text-4xl tracking-tight py-5 border-b border-ink/20 hover:text-red transition-colors select-none"
             >
               {link.label}
