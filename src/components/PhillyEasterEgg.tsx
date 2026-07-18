@@ -7,7 +7,7 @@ export default function PhillyEasterEgg({ location, className }: { location: str
   const [visible, setVisible] = useState(true)
   const [active, setActive]   = useState(false)
 
-  const handleClick = () => {
+  const handleHover = () => {
     if (active) return
     setActive(true)
 
@@ -25,14 +25,14 @@ export default function PhillyEasterEgg({ location, className }: { location: str
           setVisible(true)
           setActive(false)
         }, 150)
-      }, 1500)
+      }, 500)
     }, 150)
   }
 
   return (
     <p
-      onClick={handleClick}
-      className={`p-3 -m-3 w-fit ${className ?? 'font-display font-medium text-sm tracking-label uppercase cursor-pointer select-none'}`}
+      onMouseEnter={handleHover}
+      className={`p-3 -m-3 w-fit ${className ?? 'font-display font-medium text-sm tracking-label uppercase select-none'}`}
       style={{
         opacity: visible ? 1 : 0,
         transition: 'opacity 150ms ease, color 150ms ease',
