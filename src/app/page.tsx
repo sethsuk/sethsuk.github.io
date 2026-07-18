@@ -45,7 +45,7 @@ export default function HomePage() {
               href="#projects"
               className="font-display font-bold text-xs tracking-label uppercase border-b-2 border-ink self-start pb-1 hover:text-red transition-colors select-none"
             >
-              ↓ Selected Projects
+              ↓ Work
             </a>
           </div>
 
@@ -62,7 +62,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Selected Work ─────────────────────────────────────────── */}
-      <section id="projects" className="border-b-2 border-ink scroll-mt-[57px]">
+      <section id="projects" className="border-b-2 border-ink scroll-mt-[63px]">
         <SectionBanner>Selected Projects</SectionBanner>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink">
           {featured.map((project) => (
