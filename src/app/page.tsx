@@ -93,7 +93,7 @@ export default function HomePage() {
           <p className="font-body text-base leading-relaxed max-w-lg md:max-w-2xl">{photoContent.blurb}</p>
           <Link
             href="/photos"
-            className="font-display font-bold text-xs tracking-label uppercase border-2 border-ink px-6 py-3 hover:bg-ink hover:text-bg transition-colors whitespace-nowrap self-start sm:self-auto select-none"
+            className="font-display font-bold text-xs tracking-label uppercase border-2 border-ink px-6 py-3 hover:bg-ink hover:text-bg transition-colors whitespace-nowrap self-end sm:self-auto select-none"
           >
             View All Photos →
           </Link>
@@ -109,9 +109,10 @@ export default function HomePage() {
               <span className="font-display font-bold text-lg tracking-tight uppercase">
                 University of Pennsylvania
               </span>
-              <span className="font-display text-xs tracking-label uppercase opacity-60">
-                {education[0]?.location}
-              </span>
+              <PhillyEasterEgg
+                location={education[0]?.location ?? ''}
+                className="font-display text-xs tracking-label uppercase opacity-60 cursor-pointer select-none"
+              />
             </div>
             <hr className="border-t-2 border-ink my-5" />
             <div className="space-y-4">
