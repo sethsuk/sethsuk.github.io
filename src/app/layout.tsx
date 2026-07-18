@@ -24,16 +24,35 @@ export const metadata: Metadata = {
     template: '%s',
   },
   description:
-    'Software Engineer based in Philadelphia, PA. MSE + BS in Computer Science at the University of Pennsylvania.',
+    'Software Engineer based in Philadelphia, PA. MSE + BAS in Computer Science at the University of Pennsylvania.',
   metadataBase: new URL('https://sethsukboontip.com'),
   openGraph: {
     siteName: 'Seth Sukboontip',
     type: 'website',
     locale: 'en_US',
+    title: 'Seth Sukboontip',
+    description: 'Software Engineer based in Philadelphia, PA.',
+    url: 'https://sethsukboontip.com',
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
+    title: 'Seth Sukboontip',
+    description: 'Software Engineer based in Philadelphia, PA.',
   },
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Seth Sukboontip',
+  url: 'https://sethsukboontip.com',
+  jobTitle: 'Software Engineer',
+  alumniOf: 'University of Pennsylvania',
+  sameAs: [
+    'https://linkedin.com/in/seth-sukboontip',
+    'https://github.com/sethsuk',
+    'https://instagram.com/kilroys_magical_world',
+  ],
 }
 
 export default function RootLayout({
@@ -50,6 +69,10 @@ export default function RootLayout({
       <head>
         {/* Anti-flash theme script — must run before first paint */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body className="bg-bg text-ink font-body min-h-screen flex flex-col">
         <Nav />
