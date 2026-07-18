@@ -12,6 +12,7 @@ import RoleCycler from '@/components/RoleCycler'
 import PhillyEasterEgg from '@/components/PhillyEasterEgg'
 import ScrollToProjects from '@/components/ScrollToProjects'
 import { featuredPhotos } from '@/lib/photos'
+import PhotoCaption from '@/components/PhotoCaption'
 
 export const metadata: Metadata = {
   title: 'Seth Sukboontip',
@@ -84,12 +85,7 @@ export default function HomePage() {
               <div className="relative aspect-[3/2]">
                 <Image src={photo.src} alt={photo.alt} fill className="object-cover" />
               </div>
-              {(photo.location || photo.medium) && (
-                <div className="flex-1 bg-ink text-bg px-4 py-2 font-display text-xs tracking-label uppercase select-none flex justify-between items-center">
-                  <span>{photo.location}</span>
-                  {photo.medium && <span className="opacity-60">{photo.medium}</span>}
-                </div>
-              )}
+              <PhotoCaption photo={photo} />
             </div>
           ))}
         </div>

@@ -4,20 +4,22 @@ export interface Photo {
   width: number
   height: number
   location?: string
+  country?: string
   medium?: 'film' | 'digital'
+  gear?: string
 }
 
 export const photos: Photo[] = [
-  { src: '/photos/001.jpg', alt: '', width: 1600, height: 1066, location: 'Santa Monica', medium: 'digital' },
-  { src: '/photos/002.jpg', alt: '', width: 1600, height: 1066, location: 'Seattle', medium: 'film' },
-  { src: '/photos/003.jpg', alt: '', width: 1600, height: 1066, location: 'Boston', medium: 'film' },
-  { src: '/photos/004.jpg', alt: '', width: 1600, height: 1066, location: 'Santa Monica', medium: 'digital' },
-  { src: '/photos/005.jpg', alt: '', width: 1066, height: 1600, location: 'Hakone', medium: 'film' },
-  { src: '/photos/006.jpg', alt: '', width: 1066, height: 1600, location: 'Seattle', medium: 'film' },
-  { src: '/photos/007.jpg', alt: '', width: 1600, height: 1066, location: 'Phuket', medium: 'film' },
-  { src: '/photos/008.jpg', alt: '', width: 1600, height: 1066, location: 'Seoul', medium: 'film' },
-  { src: '/photos/009.jpg', alt: '', width: 1600, height: 1066, location: 'Santorini', medium: 'digital' },
-  { src: '/photos/010.jpg', alt: '', width: 1600, height: 1066, location: 'Los Angeles', medium: 'digital' },
+  { src: '/photos/001.jpg', alt: '', width: 1600, height: 1066, location: 'Santa Monica', country: 'California, USA', medium: 'digital', gear: 'Sony a7C II' },
+  { src: '/photos/002.jpg', alt: '', width: 1600, height: 1066, location: 'Seattle', country: 'Washington, USA', medium: 'film', gear: 'Ektachrome E100' },
+  { src: '/photos/003.jpg', alt: '', width: 1600, height: 1066, location: 'Boston', country: 'Massachusetts, USA', medium: 'film', gear: 'FujiMax 400' },
+  { src: '/photos/004.jpg', alt: '', width: 1600, height: 1066, location: 'Santa Monica', country: 'California, USA', medium: 'digital', gear: 'Sony a7C II' },
+  { src: '/photos/005.jpg', alt: '', width: 1066, height: 1600, location: 'Hakone', country: 'Japan', medium: 'film', gear: 'LomoChrome Purple' },
+  { src: '/photos/006.jpg', alt: '', width: 1066, height: 1600, location: 'Seattle', country: 'Washington, USA', medium: 'film', gear: 'Ektachrome E100' },
+  { src: '/photos/007.jpg', alt: '', width: 1600, height: 1066, location: 'Phuket', country: 'Thailand', medium: 'film', gear: 'Vision3 250D' },
+  { src: '/photos/008.jpg', alt: '', width: 1600, height: 1066, location: 'Seoul', country: 'South Korea', medium: 'film', gear: 'Superia Premium 400' },
+  { src: '/photos/009.jpg', alt: '', width: 1600, height: 1066, location: 'Santorini', country: 'Greece', medium: 'digital', gear: 'Sony a7C II' },
+  { src: '/photos/010.jpg', alt: '', width: 1600, height: 1066, location: 'Los Angeles', country: 'California, USA', medium: 'digital', gear: 'Sony a7C II' },
 ]
 
 export const featuredPhotos = photos.slice(0, 4)

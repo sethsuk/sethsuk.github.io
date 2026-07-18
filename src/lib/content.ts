@@ -5,7 +5,7 @@ export const siteContent = {
     location: 'Philadelphia, PA',
     // 2–4 sentences shown below the red block in the hero right column.
     bio: 'Kilroy was here!',
-    education: 'MSE + BS @ UPenn',
+    education: 'MSE + BAS @ UPenn',
   },
 
   education: [
@@ -17,7 +17,7 @@ export const siteContent = {
       note: "Accelerated Master's",
     },
     {
-      degree: 'BS in Computer Science',
+      degree: 'BAS in Computer Science',
       school: 'University of Pennsylvania',
       location: 'Philadelphia, PA',
       expected: '2027',

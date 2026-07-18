@@ -54,8 +54,11 @@ export default function KilroyBio() {
       : 'text-red decoration-solid decoration-red',
   ].join(' ')
 
+  const showBrackets = isDefault && !focused
+
   return (
     <p className="font-body text-base leading-relaxed">
+      {showBrackets && <span className="opacity-30 select-none mr-0.5">[</span>}
       <span
         ref={nameRef}
         contentEditable
@@ -66,7 +69,8 @@ export default function KilroyBio() {
         className={nameClass}
       >
         Kilroy
-      </span>{' '}
+      </span>
+      {showBrackets && <span className="opacity-30 select-none ml-0.5">]</span>}{' '}
       was here!
     </p>
   )

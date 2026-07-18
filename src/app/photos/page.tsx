@@ -3,7 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { siteContent } from '@/lib/content'
 import { photos } from '@/lib/photos'
-import SectionBanner from '@/components/SectionBanner'
+import CameraFlashBanner from '@/components/CameraFlashBanner'
+import PhotoCaption from '@/components/PhotoCaption'
 
 export const metadata: Metadata = {
   title: 'Photography',
@@ -15,7 +16,7 @@ export default function PhotosPage() {
 
   return (
     <>
-      <SectionBanner yellow bordered>Photography</SectionBanner>
+      <CameraFlashBanner />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink border-b-2 border-ink">
         {photos.map((photo) => (
@@ -27,12 +28,7 @@ export default function PhotosPage() {
               height={photo.height}
               style={{ width: '100%', height: 'auto', display: 'block' }}
             />
-            {(photo.location || photo.medium) && (
-              <div className="flex-1 bg-ink text-bg px-4 py-2 font-display text-xs tracking-label uppercase select-none flex justify-between items-center">
-                <span>{photo.location}</span>
-                {photo.medium && <span className="opacity-60">{photo.medium}</span>}
-              </div>
-            )}
+            <PhotoCaption photo={photo} />
           </div>
         ))}
       </div>

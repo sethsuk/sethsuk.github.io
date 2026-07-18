@@ -4,6 +4,7 @@ import { siteContent } from '@/lib/content'
 import { projects } from '@/lib/projects'
 import ProjectCard from '@/components/ProjectCard'
 import SectionBanner from '@/components/SectionBanner'
+import ScrambleHeading from '@/components/ScrambleHeading'
 
 export const metadata: Metadata = {
   title: 'Projects',
@@ -18,7 +19,7 @@ export default function ProjectsPage() {
       <SectionBanner bordered>Projects</SectionBanner>
 
       <div className="px-6 md:px-16 py-8 border-b-2 border-ink select-none">
-        <h1 className="text-display font-display font-bold">Projects</h1>
+        <ScrambleHeading text="Projects" className="text-display font-display font-bold" />
         <p className="font-display text-xs tracking-label uppercase opacity-60 mt-2 select-none">
           {projects.length} projects
         </p>

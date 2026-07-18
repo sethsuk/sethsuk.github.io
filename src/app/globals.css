@@ -71,6 +71,28 @@ html {
   animation: copied-pop 1500ms ease forwards;
 }
 
+/* Photo caption pop-up (no horizontal centering — anchors to left or right of word) */
+@keyframes pop-up {
+  0%   { opacity: 0; transform: translateY(4px); }
+  15%  { opacity: 1; transform: translateY(0); }
+  75%  { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-4px); }
+}
+.pop-badge {
+  animation: pop-up 1500ms ease forwards;
+}
+
+/* Downward tooltip (Photography banner) */
+@keyframes copied-pop-down {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(-4px); }
+  15%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+  75%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(4px); }
+}
+.copied-badge-down {
+  animation: copied-pop-down 1500ms ease forwards;
+}
+
 /* Hero name letter wave */
 @keyframes letter-wave {
   0%, 100% { transform: translateY(0); }
