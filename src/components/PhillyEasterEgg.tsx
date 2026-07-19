@@ -3,43 +3,39 @@
 import { useState } from 'react'
 
 export default function PhillyEasterEgg({ location, className }: { location: string; className?: string }) {
-  const [text, setText]       = useState(location)
-  const [visible, setVisible] = useState(true)
-  const [active, setActive]   = useState(false)
+  const [visible, setVisible]     = useState(true)
+  const [showBirds, setShowBirds] = useState(false)
 
-  const handleHover = () => {
-    if (active) return
-    setActive(true)
-
-    // fade out → swap to GO BIRDS → fade in
+  const handleEnter = () => {
     setVisible(false)
-    setTimeout(() => {
-      setText('GO BIRDS!')
-      setVisible(true)
+    setTimeout(() => { setShowBirds(true);  setVisible(true) }, 150)
+  }
 
-      // hold → fade out → swap back → fade in
-      setTimeout(() => {
-        setVisible(false)
-        setTimeout(() => {
-          setText(location)
-          setVisible(true)
-          setActive(false)
-        }, 150)
-      }, 500)
-    }, 150)
+  const handleLeave = () => {
+    setVisible(false)
+    setTimeout(() => { setShowBirds(false); setVisible(true) }, 150)
   }
 
   return (
-    <p
-      onMouseEnter={handleHover}
+    <div
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
       className={`p-3 -m-3 w-fit ${className ?? 'font-display font-medium text-sm tracking-label uppercase select-none'}`}
-      style={{
-        opacity: visible ? 1 : 0,
-        transition: 'opacity 150ms ease, color 150ms ease',
-        color: text === 'GO BIRDS!' ? 'var(--eagles-green)' : undefined,
-      }}
+      style={{ display: 'inline-grid' }}
     >
-      {text}
-    </p>
+      {/* invisible anchors — container stays as wide as whichever string is wider */}
+      <span style={{ gridArea: '1/1', visibility: 'hidden', pointerEvents: 'none' }} aria-hidden>{location}</span>
+      <span style={{ gridArea: '1/1', visibility: 'hidden', pointerEvents: 'none' }} aria-hidden>GO BIRDS!</span>
+      <span
+        style={{
+          gridArea: '1/1',
+          opacity: visible ? 1 : 0,
+          transition: 'opacity 150ms ease, color 150ms ease',
+          color: showBirds ? 'var(--eagles-green)' : undefined,
+        }}
+      >
+        {showBirds ? 'GO BIRDS!' : location}
+      </span>
+    </div>
   )
 }

@@ -111,7 +111,7 @@ export default function HomePage() {
               </span>
               <PhillyEasterEgg
                 location={education[0]?.location ?? ''}
-                className="font-display text-xs tracking-label uppercase opacity-60 cursor-pointer select-none"
+                className="font-display text-xs tracking-label uppercase opacity-60 cursor-pointer select-none text-right"
               />
             </div>
             <hr className="border-t-2 border-ink my-5" />
